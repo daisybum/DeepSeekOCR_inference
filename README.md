@@ -86,6 +86,33 @@ pip install flash-attn==2.7.3 --no-build-isolation
 ```
 **Note:** if you want vLLM and transformers codes to run in the same environment, you don't need to worry about this installation error like: vllm 0.8.5+cu118 requires transformers>=4.51.1
 
+### Install for CUDA 13.0 / aarch64 (NVIDIA GB10)
+
+For CUDA 13 or aarch64 platforms (e.g., NVIDIA GB10), you need to build vLLM from source:
+
+```bash
+# 1. Build dependencies
+pip install setuptools cmake ninja wheel packaging setuptools_scm
+
+# 2. Install PyTorch for CUDA 13
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+
+# 3. Clone and build vLLM from source
+git clone https://github.com/vllm-project/vllm.git vllm-source --depth 1
+cd vllm-source
+export CUDA_HOME=/usr/local/cuda
+export TORCH_CUDA_ARCH_LIST="12.0"
+export MAX_JOBS=-1
+pip install -e . --no-build-isolation
+
+# 4. Install requirements
+cd ..
+pip install -r requirements.txt
+
+# 5. Install flash-attn (optional, for better performance)
+pip install flash-attn --no-build-isolation
+```
+
 ## vLLM-Inference
 - VLLM:
 >**Note:** change the INPUT_PATH/OUTPUT_PATH and other settings in the DeepSeek-OCR-master/DeepSeek-OCR-vllm/config.py
