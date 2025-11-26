@@ -35,8 +35,7 @@ ENV/
 # Jupyter
 .ipynb_checkpoints/
 
-# Output files
-output/
+# Result files
 *.log
 
 # Large files (test PDFs)
