@@ -1,0 +1,9 @@
+transformers
+tokenizers
+PyMuPDF
+img2pdf
+einops
+easydict
+addict 
+Pillow
+numpy
