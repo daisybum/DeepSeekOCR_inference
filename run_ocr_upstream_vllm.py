@@ -23,7 +23,7 @@ except ImportError:
     USE_NGRAM_PROCESSOR = False
 
 # Configuration
-INPUT_PATH = '/home/sanghyun/Projects/DeepSeek-OCR/수지구 임장보고서.pdf'
+INPUT_PATH = '/home/sanghyun/Projects/DeepSeek-OCR/input/수지구 임장보고서.pdf'
 OUTPUT_PATH = '/home/sanghyun/Projects/DeepSeek-OCR/output'
 MODEL_PATH = 'deepseek-ai/DeepSeek-OCR'
 PROMPT = '<image>\n<|grounding|>Convert the document to markdown.'
